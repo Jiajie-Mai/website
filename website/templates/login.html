@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <title> {% block title %} LOGIN! {% endblock %} </title>
+    {% endblock %}
+
+  </head>
+
+  <body>
+    {% block content %}
+    <br> <br>
+    {{ message }}
+    <br> <br>
+
+
+    <form action = "/auth" method = "POST">
+
+      <b> Username: </b> <input type = "text" name = "username" > <br>
+      <b> Password: </b> <input type = "text" name = "password" > <br>
+      <input type = "submit" name = "sub1" >
+    </form>
+    <br>
+
+    {% endblock %}
+
+
+    {% block footer %}
+    {{ super() }}
+    {% endblock %}
+
+  </body>
+</html>

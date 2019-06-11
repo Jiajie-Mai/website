@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <title> {% block title %} Welcome! {% endblock %} </title>
+    {% endblock %}
+
+  </head>
+
+  <body>
+    {% block content %}
+    <p>  Hello <b> {{username}}</b>! O-oooooooooo AAAAE-A-A-I-A-U- JO-oooooooooooo AAE-O-A-A-U-U-A- E-eee-ee-eee AAAAE-A-E-I-E-A-JO-ooo-oo-oo-oo EEEEO-A-AAA-AAAA</p>
+    <form action = "logout">
+      <input type = "submit" name = "logout" >
+    </form>
+    {% endblock %}
+
+    {% block footer %}
+    {{ super() }}
+    {% endblock %}
+  </body>
+</html>
