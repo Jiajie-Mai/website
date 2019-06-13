@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 app.secret_key = os.urandom(32)
 
-users = [{'user' : 'alex', 'pass' : 'starwars4'}]
+users = [['me','meme']]
 
 @app.route('/', methods = ["GET", "POST"] )
 def disp_login():
@@ -28,8 +28,23 @@ def authenticate():
     username = request.form['username']
     password = request.form['password']
 
+    username_exists = False
+    for user in users:
+        if users[user][0] == username:
+            username_exists = True
+            if users[user][1] == password:
+                session['username'] = username
+                return redirect("/")
+            else:
+                flash("Wrong Password")
+                return redirect("/")
+
+
+
+
+
     ### Invalid username: ===================================
-    if username not in users.keys():
+    if username not in users:
         return redirect("/")
 
     ### Invalid password: ===================================
